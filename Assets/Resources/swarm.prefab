@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7990761557683392659}
   - component: {fileID: 7174390889424308410}
   - component: {fileID: 7703402293414773167}
+  - component: {fileID: 706958753380583618}
+  - component: {fileID: 8256532979496378926}
   m_Layer: 0
   m_Name: swarm
   m_TagString: Untagged
@@ -130,7 +132,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 3
+  m_Constraints: 0
 --- !u!114 &7703402293414773167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,5 +143,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44cf02aaf2dd646ff815ad6529dc9bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &706958753380583618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7990761557683392663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cedf630315e40463692d891fdf9d9a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8256532979496378926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7990761557683392663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd4ee6785d3540ebba1adf7c42f9658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

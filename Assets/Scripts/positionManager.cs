@@ -47,7 +47,10 @@ public class positionManager : MonoBehaviour
 
             instance.transform.position = targetPos;
 
-            instance.transform.SetParent(Queen.transform);
+            FollowQueen followScript = instance.GetComponent<FollowQueen>();
+            followScript.Init(Queen.transform);
+
+            //instance.transform.SetParent(Queen.transform);
 
         }
 
