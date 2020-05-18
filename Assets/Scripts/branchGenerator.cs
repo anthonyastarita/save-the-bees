@@ -12,7 +12,7 @@ public class branchGenerator : MonoBehaviour
     void Start()
     {
 
-        coroutine = generateBranch(1.75f);
+        coroutine = generateBranch(2.0f);
         StartCoroutine(coroutine);
 
 
