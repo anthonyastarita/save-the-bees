@@ -17,9 +17,16 @@ public class BranchGenerator : MonoBehaviour
         levelManager.OnLevelEnded += OnLevelEnded;
     }
 
+<<<<<<< HEAD
     private void OnLevelStarted(int level)
     {
         StartCoroutine(BranchGenerationUpdate(GENERATION_INTERVAL));
+=======
+        coroutine = generateBranch(2.0f);
+        StartCoroutine(coroutine);
+
+
+>>>>>>> 06a44c12f023172a1b4f246d885fc2acfd9618a9
     }
 
     private void OnLevelEnded(int level)
