@@ -7,7 +7,7 @@ public class BranchGenerator : MonoBehaviour
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private GameObject branchPrefab;
 
-    private const float GENERATION_INTERVAL = 1.75f;
+    private const float GENERATION_INTERVAL = 2.0f;
     private float GetRandomSpacing => Random.Range(1.0f, 3.0f);
     private float GetRandomXPosition => Random.Range(-6.0f, 6.0f);
 
@@ -17,16 +17,10 @@ public class BranchGenerator : MonoBehaviour
         levelManager.OnLevelEnded += OnLevelEnded;
     }
 
-<<<<<<< HEAD
+
     private void OnLevelStarted(int level)
     {
         StartCoroutine(BranchGenerationUpdate(GENERATION_INTERVAL));
-=======
-        coroutine = generateBranch(2.0f);
-        StartCoroutine(coroutine);
-
-
->>>>>>> 06a44c12f023172a1b4f246d885fc2acfd9618a9
     }
 
     private void OnLevelEnded(int level)

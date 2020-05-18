@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Queen: {fileID: 1449727588}
-  Swarm: {fileID: 7990761557683392663, guid: 46a8cf4ef3caf4b28833c46161ceeaf6, type: 3}
+  Swarm: {fileID: 2615322359765409267, guid: 0d0d0ff05ccc24a01895a9b20522c588, type: 3}
 --- !u!4 &1231362114
 Transform:
   m_ObjectHideFlags: 0
@@ -712,6 +712,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -880,6 +881,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1074,12 +1076,12 @@ PrefabInstance:
     - target: {fileID: 6141984908275433872, guid: e569dfd658aac41719cb3b151f77ebee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: 6141984908275433872, guid: e569dfd658aac41719cb3b151f77ebee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.69
+      value: -4.92
       objectReference: {fileID: 0}
     - target: {fileID: 6141984908275433872, guid: e569dfd658aac41719cb3b151f77ebee,
         type: 3}
