@@ -1,79 +1,60 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class branchGenerator : MonoBehaviour
+public class BranchGenerator : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private LevelManager levelManager;
+    [SerializeField] private GameObject branchPrefab;
 
-    public GameObject branch;
-    private IEnumerator coroutine;
+    private const float GENERATION_INTERVAL = 1.75f;
+    private float GetRandomSpacing => Random.Range(1.0f, 3.0f);
+    private float GetRandomXPosition => Random.Range(-6.0f, 6.0f);
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        levelManager.OnLevelStarted += OnLevelStarted;
+        levelManager.OnLevelEnded += OnLevelEnded;
+    }
 
+<<<<<<< HEAD
+    private void OnLevelStarted(int level)
+    {
+        StartCoroutine(BranchGenerationUpdate(GENERATION_INTERVAL));
+=======
         coroutine = generateBranch(2.0f);
         StartCoroutine(coroutine);
 
 
+>>>>>>> 06a44c12f023172a1b4f246d885fc2acfd9618a9
     }
 
+    private void OnLevelEnded(int level)
+    {
+        StopAllCoroutines();
+    }
 
-    private IEnumerator generateBranch(float waitTime)
+    private IEnumerator BranchGenerationUpdate(float waitTime)
     {
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
 
+            float nextBranchCoord = GetRandomXPosition;
+            float sizeOfSpace = GetRandomSpacing;
 
-            float nextBranchCoord = generateRandX();
-            float sizeOfSpace = generateRandSpace();
-
-            Vector3 rightBranchTip = new Vector3(0, 0, 0);
-            Vector3 leftBranchTip = new Vector3(0, 0, 0);
-
-
-            GameObject branchInstanceRight = Instantiate(branch);
-            GameObject branchInstanceLeft= Instantiate(branch);
+            GameObject branchInstanceRight = Instantiate(branchPrefab);
+            GameObject branchInstanceLeft= Instantiate(branchPrefab);
             branchInstanceRight.transform.position = new Vector3(nextBranchCoord + sizeOfSpace, 12, 0);
             branchInstanceLeft.transform.position = new Vector3(nextBranchCoord - sizeOfSpace, 12, 0);
-
-
 
             Vector3 newScale = branchInstanceLeft.transform.localScale;
             newScale.x *= -1;
             branchInstanceRight.transform.localScale = newScale;
-
-            
-
-
-
         }
     }
 
-    private float generateRandSpace()
-    {
-
-        return Random.Range(1.0f, 3.0f);
-
-    }
-
-    private float generateRandX()
-	{
-
-        return Random.Range(-6.0f, 6.0f);
-
-	}
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
-
+    
 
 
 }
