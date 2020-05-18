@@ -6,7 +6,7 @@ public class changeColorOverTime : MonoBehaviour
 {
 
     SpriteRenderer leafSprite;
-    public float lerpTime = 2.0f;
+    public float lerpTime = 6.0f;
 
     // Start is called before the first frame update
     void Start()

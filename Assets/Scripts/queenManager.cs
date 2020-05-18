@@ -15,14 +15,14 @@ public class queenManager : MonoBehaviour
     {
 
         cam = Camera.main;
-        queenPos.y = -10;
+        queenPos.y = -5;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        queenPos.y = -10;
+        queenPos.y = -5;
         Queen.transform.position = Vector3.Lerp(Queen.transform.position, queenPos, 0.1f);
         //Debug.Log(Queen.transform.position + " " + queenPos);
 
