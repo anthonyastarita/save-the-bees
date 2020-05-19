@@ -1,14 +1,24 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    private int currentLevel = 0;
+    [Header("References")]
+    [SerializeField] private LevelCompletionDisplay levelCompletionDisplay;
+
+    public int CurrentLevel { get; private set; } = 0;
+
     private const float LEVEL_DURATION = 20.0f;
 
     public event Action<int> OnLevelStarted;
     public event Action<int> OnLevelEnded;
+
+    private void Awake()
+    {
+        levelCompletionDisplay.OnClick += StartLevel;
+    }
 
     private void Start()
     {
@@ -17,16 +27,16 @@ public class LevelManager : MonoBehaviour
 
     private void StartLevel()
     {
-        currentLevel++;
-        Debug.Log($"Level {currentLevel} has started.");
-        OnLevelStarted?.Invoke(currentLevel);
+        CurrentLevel++;
+        Debug.Log($"Level {CurrentLevel} has started.");
+        OnLevelStarted?.Invoke(CurrentLevel);
         StartCoroutine(EndLevel());
     }
 
     private IEnumerator EndLevel()
     {
         yield return new WaitForSeconds(LEVEL_DURATION);
-        Debug.Log($"Level {currentLevel} has ended.");
-        OnLevelEnded?.Invoke(currentLevel);
+        Debug.Log($"Level {CurrentLevel} has ended.");
+        OnLevelEnded?.Invoke(CurrentLevel);
     }
 }
