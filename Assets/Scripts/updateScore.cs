@@ -7,29 +7,41 @@ using TMPro;
 public class updateScore : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI score;
+    [SerializeField] private LevelManager levelManager;
 
-    void onEnable()
-	{
-        eventManager.onPassBranch += UpdateScore;
-	}
+    public int sum = 0;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        //score.text = "Yoyo";
+        score = GetComponent<TextMeshProUGUI>();
+        levelManager.OnLevelStarted += OnLevelStarted;
+        levelManager.OnLevelEnded += OnLevelEnded;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnLevelStarted(int level)
     {
-        
+        StartCoroutine(UpdateScore(level));
     }
 
-    void UpdateScore()
-	{
-        //score.text = "Yoyo";
-	}
+    private void OnLevelEnded(int level)
+    {
+        StopAllCoroutines();
+    }
+
+    private IEnumerator UpdateScore(int level)
+    {
+
+        yield return new WaitForSeconds(3.5f);
+
+        while (true)
+        {
+            yield return new WaitForSeconds(2.0f);
+            //points are the number of bees alive, times the level number
+            sum += level;
+            score.SetText(sum.ToString());
+
+        }
+    }
 
 
 }

@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Obsolete("Behaviour moved to LeafColorChanger.cs")]
 public class changeColorOverTime : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private List<SpriteRenderer> spritesToChange;
 
-    private const float LERP_TIME = 6.0f;
+    SpriteRenderer leafSprite;
+    public float lerpTime = 6.0f;
 
+    // Start is called before the first frame update
     void Start()
     {
+        leafSprite = GetComponent<SpriteRenderer>();
         StartCoroutine(ColorLerp());
     }
+
 
     IEnumerator ColorLerp()
     {
@@ -24,8 +25,8 @@ public class changeColorOverTime : MonoBehaviour
         while (percentageComplete < 1)
         {
             float elapsedTime = Time.time - startTime;
-            percentageComplete = elapsedTime / (LERP_TIME);
-            //leafSprite.color = Color.Lerp(Color.green, Color.red, percentageComplete);
+            percentageComplete = elapsedTime / (lerpTime);
+            leafSprite.color = Color.Lerp(Color.green, Color.red, percentageComplete);
             yield return null;
         }
     }
