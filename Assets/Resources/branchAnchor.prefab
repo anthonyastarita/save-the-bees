@@ -52,19 +52,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5947037, y: 1.8379304}
   m_EdgeRadius: 0
---- !u!114 &7515579113750779512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482583613418302260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71ffb985ff6404926810ee16a25b0bd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lerpTime: 2
 --- !u!114 &3645512691911560094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,19 +116,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.43351, y: 5.08}
   m_EdgeRadius: 0
---- !u!114 &8904940185845955664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2177412259040520615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71ffb985ff6404926810ee16a25b0bd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lerpTime: 2
 --- !u!114 &9035853192146796541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +139,7 @@ GameObject:
   - component: {fileID: 4830288993010531554}
   - component: {fileID: 8317906163325936492}
   - component: {fileID: -6890732876377777696}
+  - component: {fileID: 7498564381434923737}
   m_Layer: 0
   m_Name: branchAnchor
   m_TagString: Untagged
@@ -229,6 +204,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7498564381434923737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105368753657751938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51583876d41e54313b88a19b0336d799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leafSprites:
+  - {fileID: 1330089571717893327}
+  - {fileID: 788322072437345884}
 --- !u!114 &3877269415725998633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,6 +545,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: realLeaf
       objectReference: {fileID: 0}
+    - target: {fileID: 8127860671181030133, guid: 018594e3a1013455a9552435fea90a04,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127860671181030133, guid: 018594e3a1013455a9552435fea90a04,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127860671181030133, guid: 018594e3a1013455a9552435fea90a04,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018594e3a1013455a9552435fea90a04, type: 3}
 --- !u!1 &482583613418302260 stripped
@@ -566,6 +571,12 @@ GameObject:
 --- !u!4 &6563659348993135084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4154665465291415510, guid: 018594e3a1013455a9552435fea90a04,
+    type: 3}
+  m_PrefabInstance: {fileID: 7115295282881842746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1330089571717893327 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8127860671181030133, guid: 018594e3a1013455a9552435fea90a04,
     type: 3}
   m_PrefabInstance: {fileID: 7115295282881842746}
   m_PrefabAsset: {fileID: 0}
@@ -662,6 +673,12 @@ GameObject:
 --- !u!4 &4869251781443474303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4154665465291415510, guid: 018594e3a1013455a9552435fea90a04,
+    type: 3}
+  m_PrefabInstance: {fileID: 8807730837688110249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &788322072437345884 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8127860671181030133, guid: 018594e3a1013455a9552435fea90a04,
     type: 3}
   m_PrefabInstance: {fileID: 8807730837688110249}
   m_PrefabAsset: {fileID: 0}
