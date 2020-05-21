@@ -18,7 +18,8 @@ public class BranchGenerator : MonoBehaviour
     private const float BASE_GENERATION_INTERVAL = 2.0f;
     private const float GENERATION_INTERVAL_GROWTH = 0.5f;
 
-    private float GetGenerationInterval => BASE_GENERATION_INTERVAL / (1 + ((levelManager.CurrentLevel - 1) * GENERATION_INTERVAL_GROWTH));
+    //private float GetGenerationInterval => BASE_GENERATION_INTERVAL / (1 + ((levelManager.CurrentLevel - 1) * GENERATION_INTERVAL_GROWTH));
+    private float GetGenerationInterval => BASE_GENERATION_INTERVAL;
 
     private float GetRandomSpacing => Random.Range(1.0f, 3.0f);
     private float GetRandomXPosition => Random.Range(-6.0f, 6.0f);
@@ -61,6 +62,7 @@ public class BranchGenerator : MonoBehaviour
 
     private IEnumerator BranchGenerationUpdate(Color startColor, Color endColor)
     {
+
         while (true)
         {
             yield return new WaitForSeconds(GetGenerationInterval);
