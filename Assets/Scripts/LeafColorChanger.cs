@@ -19,15 +19,16 @@ public class LeafColorChanger : MonoBehaviour
         float startTime = Time.time;
         float percentageComplete = 0;
 
-        var top = Camera.main.ScreenToWorldPoint(new Vector3(0, Camera.main.pixelHeight, 0));
+        var top = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
         var bot = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
+
         var screenHeight = top.y - bot.y;
 
-        while (percentageComplete < 1)
+        while (true)
         {
             float elapsedTime = Time.time - startTime;
 
-            var distanceTraveled = top.y - transform.position.y - Y_OFFSET;
+            var distanceTraveled = top.y - transform.position.y;
             percentageComplete = distanceTraveled / screenHeight;
 
             leafSprites.ForEach((leaf) =>

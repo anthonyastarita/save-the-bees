@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3469684654400979967}
   - component: {fileID: 8200981542820581158}
-  - component: {fileID: 2130402286884367533}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: testBee (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,18 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2130402286884367533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722423021738781744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd4ee6785d3540ebba1adf7c42f9658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2615322359765409267
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +96,7 @@ GameObject:
   - component: {fileID: 4854882207400887718}
   - component: {fileID: 4051698593177349962}
   - component: {fileID: 5685772256203221107}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +219,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4854882207400887718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7855f43f552be411a92bcdea7090af76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
 --- !u!1 &4027452355764862835
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,8 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4335475530335045036}
   - component: {fileID: 5972053732346889522}
-  - component: {fileID: 6766041868981181728}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: testBee (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,18 +338,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6766041868981181728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4027452355764862835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd4ee6785d3540ebba1adf7c42f9658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4515145334224288651
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,8 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8778992809423777622}
   - component: {fileID: 400885159726905079}
-  - component: {fileID: 846125167151508945}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: testBee (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,18 +419,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &846125167151508945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4515145334224288651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd4ee6785d3540ebba1adf7c42f9658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6550947392926501931
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,8 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2090813068960473008}
   - component: {fileID: 883771044927805986}
-  - component: {fileID: 7671721036322043253}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: testBee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,18 +500,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7671721036322043253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6550947392926501931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd4ee6785d3540ebba1adf7c42f9658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8201706712858474162
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,8 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3283975586129721469}
   - component: {fileID: 1542019166161081978}
-  - component: {fileID: 1120989964520151709}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: testBee (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,18 +581,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1120989964520151709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8201706712858474162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd4ee6785d3540ebba1adf7c42f9658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8358647130389176082
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,8 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8525902483297314027}
   - component: {fileID: 7383534099927601463}
-  - component: {fileID: 5160187308174705063}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: testBee (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,18 +662,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5160187308174705063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8358647130389176082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd4ee6785d3540ebba1adf7c42f9658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8825495156632247525
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,8 +672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5468444527405051404}
   - component: {fileID: 3464150991876508138}
-  - component: {fileID: 4027115801278013960}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: testBee (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,18 +745,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4027115801278013960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8825495156632247525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd4ee6785d3540ebba1adf7c42f9658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9144829099096019722
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,8 +755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6543362914818633577}
   - component: {fileID: 2866529268581956767}
-  - component: {fileID: 574387020968888194}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: testBee (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -917,15 +826,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &574387020968888194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9144829099096019722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd4ee6785d3540ebba1adf7c42f9658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
