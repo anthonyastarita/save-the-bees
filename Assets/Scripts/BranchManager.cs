@@ -18,14 +18,18 @@ public class BranchManager : MonoBehaviour
     public float branchSpeed { get; private set; } = 0;
 
 
-    private const float BASE_GENERATION_INTERVAL = 2.0f;
-    //private const float GENERATION_INTERVAL_GROWTH = 0.5f;
+    
 
     private const float BASE_SPEED = 5.0f;
     private const float SPEED_GROWTH = 0.5f;
     private const float RANDOM_SPEED_BONUS = 1.20f;
 
-    private float GetGenerationInterval => BASE_GENERATION_INTERVAL;
+
+    private const float BASE_GENERATION_INTERVAL = 2.0f;
+    private const float GENERATION_INTERVAL_GROWTH = 0.5f;
+    private float RANDOM_GENERATION_INTERVAL_FACTOR => 1 + Random.Range(0.0f, 0.5f * levelManager.CurrentLevel);
+    private float GENERATION_INTERVAL => BASE_GENERATION_INTERVAL / 1 + ((levelManager.CurrentLevel - 1) * GENERATION_INTERVAL_GROWTH) / RANDOM_GENERATION_INTERVAL_FACTOR;
+
 
     private float GetRandomSpacing => Random.Range(1.0f, 3.0f);
     private float GetRandomXPosition => Random.Range(-6.0f, 6.0f);
@@ -75,7 +79,7 @@ public class BranchManager : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(GetGenerationInterval);
+            yield return new WaitForSeconds(GENERATION_INTERVAL / RANDOM_GENERATION_INTERVAL_FACTOR);
 
             float nextBranchCoord = GetRandomXPosition;
             float sizeOfSpace = GetRandomSpacing;
@@ -111,13 +115,11 @@ public class BranchManager : MonoBehaviour
 	{
         get
         {
-            float varience = 1.20f;
-
             float baseSpeed = BASE_SPEED + ((levelManager.CurrentLevel - 1) * SPEED_GROWTH);
 
             int randIndex = Random.Range(0, 3);
 
-            baseSpeed = randIndex == 0 ? baseSpeed * varience : baseSpeed / varience;
+            baseSpeed = randIndex == 0 ? baseSpeed * RANDOM_SPEED_BONUS : baseSpeed / RANDOM_SPEED_BONUS;
 
             Debug.Log(baseSpeed);
 
