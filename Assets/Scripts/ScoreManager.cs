@@ -11,7 +11,6 @@ public class ScoreManager : MonoBehaviour
     public int BeesAlive { get; set; } = 100;
 
 
-
     //public event Action<int> OnScore;
 
 

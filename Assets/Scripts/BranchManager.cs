@@ -14,6 +14,12 @@ public class BranchManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private GameObject branchPrefab;
+    private Camera cam;
+
+    //so the color changer knows how long the leaf is going to be on the screen
+    public float screenHeight { get; private set; } = 0;
+    public float branchSpeed { get; private set; } = 0;
+
 
     private const float BASE_GENERATION_INTERVAL = 2.0f;
     private const float GENERATION_INTERVAL_GROWTH = 0.5f;
@@ -41,6 +47,7 @@ public class BranchManager : MonoBehaviour
 
     private void Awake()
     {
+        cam = Camera.main;
         levelManager.OnLevelStarted += OnLevelStarted;
         levelManager.OnLevelEnded += OnLevelEnded;
     }
@@ -51,6 +58,8 @@ public class BranchManager : MonoBehaviour
         Color startColor = GetRandomColor;
         Color endColor = ContrastColor[startColor];
 
+        InitDistanceTraveling();
+
         while (startColor == endColor)
         {
             endColor = GetRandomColor;
@@ -58,6 +67,19 @@ public class BranchManager : MonoBehaviour
 
         StartCoroutine(BranchGenerationUpdate(startColor,endColor));
     }
+
+
+
+    private void InitDistanceTraveling()
+	{
+
+		var top = Camera.main.ScreenToWorldPoint(new Vector3(0, cam.pixelHeight, 0));
+		var bot = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
+
+		screenHeight = top.y - bot.y;
+        Debug.Log(screenHeight);
+    }
+
 
     private void OnLevelEnded(int level)
     {
@@ -68,6 +90,7 @@ public class BranchManager : MonoBehaviour
     private IEnumerator BranchGenerationUpdate(Color startColor, Color endColor)
     {
         float speed = HowFast();
+        branchSpeed = speed;
 
         while (true)
         {
@@ -109,7 +132,7 @@ public class BranchManager : MonoBehaviour
         int level = levelManager.CurrentLevel;
         float varience = 20.0f;
 
-        Debug.Log(BASE_SPEED);
+        //Debug.Log(BASE_SPEED);
 
         float baseSpeed = BASE_SPEED + ((level * 0.5f) * -1);
 

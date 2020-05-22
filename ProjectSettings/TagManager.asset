@@ -6,6 +6,7 @@ TagManager:
   tags:
   - branch
   - Bee
+  - ScoreManager
   layers:
   - Default
   - TransparentFX
