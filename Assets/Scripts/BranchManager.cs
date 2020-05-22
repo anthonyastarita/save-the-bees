@@ -17,9 +17,6 @@ public class BranchManager : MonoBehaviour
 
     public float branchSpeed { get; private set; } = 0;
 
-
-    
-
     private const float BASE_SPEED = 5.0f;
     private const float SPEED_GROWTH = 0.5f;
     private const float RANDOM_SPEED_BONUS = 1.20f;
