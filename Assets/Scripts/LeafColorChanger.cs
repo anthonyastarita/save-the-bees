@@ -7,6 +7,8 @@ public class LeafColorChanger : MonoBehaviour
     [Header("References")]
     [SerializeField] private List<SpriteRenderer> leafSprites;
 
+    private const float Y_OFFSET = 1.0f;
+
     public void Init(Color startColor, Color endColor)
     {
         StartCoroutine(ColorLerp(startColor, endColor));
@@ -25,7 +27,7 @@ public class LeafColorChanger : MonoBehaviour
         {
             float elapsedTime = Time.time - startTime;
 
-            var distanceTraveled = top.y - transform.position.y;
+            var distanceTraveled = top.y - transform.position.y - Y_OFFSET;
             percentageComplete = distanceTraveled / screenHeight;
 
             leafSprites.ForEach((leaf) =>
