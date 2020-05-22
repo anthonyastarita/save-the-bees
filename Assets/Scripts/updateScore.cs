@@ -8,6 +8,9 @@ public class updateScore : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI score;
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private ScoreManager scoreManager;
+
+
 
     public int sum = 0;
 
@@ -37,7 +40,7 @@ public class updateScore : MonoBehaviour
         {
             yield return new WaitForSeconds(2.0f);
             //points are the number of bees alive, times the level number
-            sum += level;
+            sum += level * scoreManager.BeesAlive;
             score.SetText(sum.ToString());
 
         }

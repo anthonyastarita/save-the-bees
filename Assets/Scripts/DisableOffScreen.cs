@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DisableOffScreen : MonoBehaviour
 {
+
     private void OnBecameInvisible()
     {
         gameObject.SetActive(false);
