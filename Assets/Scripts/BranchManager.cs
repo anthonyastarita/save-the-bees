@@ -14,23 +14,21 @@ public class BranchManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private GameObject branchPrefab;
-    private Camera cam;
 
-    //so the color changer knows how long the leaf is going to be on the screen
-    public float screenHeight { get; private set; } = 0;
     public float branchSpeed { get; private set; } = 0;
 
 
     private const float BASE_GENERATION_INTERVAL = 2.0f;
-    private const float GENERATION_INTERVAL_GROWTH = 0.5f;
-    private const float BASE_SPEED = -5.0f;
+    //private const float GENERATION_INTERVAL_GROWTH = 0.5f;
 
-    //private float GetGenerationInterval => BASE_GENERATION_INTERVAL / (1 + ((levelManager.CurrentLevel - 1) * GENERATION_INTERVAL_GROWTH));
+    private const float BASE_SPEED = 5.0f;
+    private const float SPEED_GROWTH = 0.5f;
+    private const float RANDOM_SPEED_BONUS = 1.20f;
+
     private float GetGenerationInterval => BASE_GENERATION_INTERVAL;
 
     private float GetRandomSpacing => Random.Range(1.0f, 3.0f);
     private float GetRandomXPosition => Random.Range(-6.0f, 6.0f);
-
 
     private Rigidbody2D leftBranch;
     private Rigidbody2D rightBranch;
@@ -47,7 +45,6 @@ public class BranchManager : MonoBehaviour
 
     private void Awake()
     {
-        cam = Camera.main;
         levelManager.OnLevelStarted += OnLevelStarted;
         levelManager.OnLevelEnded += OnLevelEnded;
     }
@@ -58,8 +55,6 @@ public class BranchManager : MonoBehaviour
         Color startColor = GetRandomColor;
         Color endColor = ContrastColor[startColor];
 
-        InitDistanceTraveling();
-
         while (startColor == endColor)
         {
             endColor = GetRandomColor;
@@ -67,19 +62,6 @@ public class BranchManager : MonoBehaviour
 
         StartCoroutine(BranchGenerationUpdate(startColor,endColor));
     }
-
-
-
-    private void InitDistanceTraveling()
-	{
-
-		var top = Camera.main.ScreenToWorldPoint(new Vector3(0, cam.pixelHeight, 0));
-		var bot = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
-
-		screenHeight = top.y - bot.y;
-        Debug.Log(screenHeight);
-    }
-
 
     private void OnLevelEnded(int level)
     {
@@ -89,8 +71,7 @@ public class BranchManager : MonoBehaviour
 
     private IEnumerator BranchGenerationUpdate(Color startColor, Color endColor)
     {
-        float speed = HowFast();
-        branchSpeed = speed;
+        var speed = GetSpeed;
 
         while (true)
         {
@@ -120,40 +101,30 @@ public class BranchManager : MonoBehaviour
 			leftBranch.bodyType = RigidbodyType2D.Kinematic;
 			rightBranch.bodyType = RigidbodyType2D.Kinematic;
 
-            leftBranch.velocity = new Vector2(0.0f, (speed));
-            rightBranch.velocity = new Vector2(0.0f, (speed));
+            leftBranch.velocity = new Vector2(0.0f, speed * -1);
+            rightBranch.velocity = new Vector2(0.0f, speed * -1);
         }
     }
 
 
-    private float HowFast()
+    private float GetSpeed
 	{
-
-        int level = levelManager.CurrentLevel;
-        float varience = 20.0f;
-
-        //Debug.Log(BASE_SPEED);
-
-        float baseSpeed = BASE_SPEED + ((level * 0.5f) * -1);
-
-        int speedBonus = Random.Range(0, 3);
-
-		//Debug.Log(speedBonus);
-
-
-        //I wanted the levels to randomly be 10% faster or slower, to mix things up
-		if (speedBonus == 0)
-		{
-            baseSpeed += (baseSpeed / varience);
-		}
-        else if (speedBonus == 1)
+        get
         {
-            baseSpeed -= (baseSpeed / varience);
+            float varience = 1.20f;
+
+            float baseSpeed = BASE_SPEED + ((levelManager.CurrentLevel - 1) * SPEED_GROWTH);
+
+            int randIndex = Random.Range(0, 3);
+
+            baseSpeed = randIndex == 0 ? baseSpeed * varience : baseSpeed / varience;
+
+            Debug.Log(baseSpeed);
+
+            return baseSpeed;
         }
 
-        Debug.Log(baseSpeed);
-
-        return baseSpeed;
+        
 
 	}
 

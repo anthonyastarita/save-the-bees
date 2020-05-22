@@ -6,42 +6,27 @@ public class LeafColorChanger : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private List<SpriteRenderer> leafSprites;
-    [SerializeField] private BranchManager branchManager;
-
-    private float lerpTime = 4.0f;
-
-
- //   void Start()
-	//{
- //       branchManager = GameObject.FindWithTag("BranchManager").GetComponent<BranchManager>();
- //   }
 
     public void Init(Color startColor, Color endColor)
     {
-        branchManager = GameObject.FindWithTag("BranchManager").GetComponent<BranchManager>();
-        InitLerpTime();
         StartCoroutine(ColorLerp(startColor, endColor));
     }
 
-    private void InitLerpTime()
-	{
-        //lerpTime = distance/rate?
-        float preLerpTime = branchManager.screenHeight / Mathf.Abs(branchManager.branchSpeed);
-
-        lerpTime = preLerpTime;
-
-	}
-
     private IEnumerator ColorLerp(Color startColor, Color endColor)
     {
-
         float startTime = Time.time;
         float percentageComplete = 0;
+
+        var top = Camera.main.ScreenToWorldPoint(new Vector3(0, Camera.main.pixelHeight, 0));
+        var bot = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
+        var screenHeight = top.y - bot.y;
 
         while (percentageComplete < 1)
         {
             float elapsedTime = Time.time - startTime;
-            percentageComplete = elapsedTime / (lerpTime);
+
+            var distanceTraveled = top.y - transform.position.y;
+            percentageComplete = distanceTraveled / screenHeight;
 
             leafSprites.ForEach((leaf) =>
             {
