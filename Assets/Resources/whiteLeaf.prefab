@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8400540882968306494}
   - component: {fileID: 3092587671618663365}
   - component: {fileID: 4851564806340327005}
+  - component: {fileID: -3757866036156712530}
   m_Layer: 0
   m_Name: whiteLeaf
   m_TagString: Untagged
@@ -135,3 +136,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6065817, y: 0.7983835}
   m_EdgeRadius: 0
+--- !u!114 &-3757866036156712530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3496517602326207392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd4ee6785d3540ebba1adf7c42f9658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

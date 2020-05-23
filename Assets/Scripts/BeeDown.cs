@@ -18,6 +18,7 @@ public class BeeDown : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        scoreManager.BeesAlive--;
+        if (transform.position.y < Camera.main.ScreenToWorldPoint(Vector3.zero).y)
+            scoreManager.BeesAlive--;
     }
 }

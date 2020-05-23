@@ -20,15 +20,15 @@ public class FollowQueen : MonoBehaviour
 
     private IEnumerator FollowUpdate(Transform queen)
     {
-        var followDistance = (Vector3)Random.insideUnitCircle * FOLLOW_RADIUS;
-        while (gameObject.activeSelf)
-        {
-            var targetPosition = followDistance + queen.position;
+		var followDistance = (Vector3)Random.insideUnitCircle * FOLLOW_RADIUS;
+		while (gameObject.activeSelf)
+		{
+			var targetPosition = followDistance + queen.position;
 
-            //applies a spring movement behaviour, gets faster the further the bee is away from the queen
-            rb.velocity = (targetPosition - transform.position) * SPEED;
+			//applies a spring movement behaviour, gets faster the further the bee is away from the queen
+			rb.velocity = (targetPosition - transform.position) * SPEED;
 
-            yield return new WaitForFixedUpdate();
-        }
-    }
+			yield return new WaitForFixedUpdate();
+		}
+	}
 }
