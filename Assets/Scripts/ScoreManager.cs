@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private BranchManager branchManager;
+    [SerializeField] private BeeManager beeManager;
 
     private int currentScore = 0;
     private int CurrentScore
@@ -49,7 +50,7 @@ public class ScoreManager : MonoBehaviour
 
     private void OnBranchPassedQueen()
     {
-        CurrentScore += 5;
+        CurrentScore += Mathf.CeilToInt(beeManager.CurrentBeeCount/2);
     }
 
     
