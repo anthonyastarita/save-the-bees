@@ -5,6 +5,8 @@ using UnityEngine;
 public class positionManager : MonoBehaviour
 {
 
+    [SerializeField] private LevelManager levelManager;
+
     public GameObject Queen;
     public GameObject Swarm;
 
@@ -15,13 +17,19 @@ public class positionManager : MonoBehaviour
         queenPos = Queen.transform.position;
 
         float[] layers = { 0.5f, 1.0f, 1.5f, 2.0f, 2.5f};
-        int[] ringSize = { 7, 13, 19, 25, 33 };
 
-        for(int i=0; i<5; i++)
+        int[] ringSize = { 7, 13, 19, 25, 33 };
+        int[] beesSpawning;
+
+
+		for (int i = 0; i < 5; i++)
 		{
-            InitSwarm(layers[i], ringSize[i]);
-        }
-            
+			InitSwarm(layers[i], ringSize[i]);
+		}
+
+
+
+		//InitSwarm(layers[i], ringSize[i]);
 
 	}
 
@@ -55,4 +63,7 @@ public class positionManager : MonoBehaviour
         }
 
     }
+
+
+
 }
