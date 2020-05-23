@@ -13,7 +13,7 @@ public class LevelCompletionDisplay : MonoBehaviour
 
     public event Action OnClick;
 
-    private const float DISPLAY_DELAY = 5.0f;
+    private const float DISPLAY_DELAY = 2.5f;
 
     private void Awake()
     {

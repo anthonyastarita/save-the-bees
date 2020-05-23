@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private BranchManager branchManager;
 
     private int currentScore = 0;
     private int CurrentScore
@@ -16,6 +17,7 @@ public class ScoreManager : MonoBehaviour
         {
             currentScore = value;
             OnCurrentScoreChanged?.Invoke(currentScore);
+            if (CurrentScore > HighScore) HighScore = CurrentScore;
         }
     }
 
@@ -37,13 +39,20 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         levelManager.OnLevelEnded += OnLevelEnded;
+        branchManager.OnBranchPassedQueen += OnBranchPassedQueen;
     }
 
     private void OnLevelEnded(int level)
     {
         CurrentScore += 100;
-        if (CurrentScore > HighScore) HighScore = CurrentScore;
     }
+
+    private void OnBranchPassedQueen()
+    {
+        CurrentScore += 5;
+    }
+
+    
 
     
 }

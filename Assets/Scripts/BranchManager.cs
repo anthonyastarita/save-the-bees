@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class ColorExtension
 {
@@ -14,11 +16,12 @@ public class BranchManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private GameObject branchPrefab;
+    [SerializeField] private Transform queen;
 
-    public float branchSpeed { get; private set; } = 0;
+    public float BranchSpeed { get; private set; } = 0;
 
-    private const float BASE_SPEED = 5.0f;
-    private const float SPEED_GROWTH = 0.1f;
+    private const float BASE_SPEED = 10.0f;
+    private const float SPEED_GROWTH = 0.05f;
     private const float RANDOM_SPEED_BONUS = 1.20f;
 
 
@@ -31,8 +34,7 @@ public class BranchManager : MonoBehaviour
     private float GetRandomSpacing => Random.Range(1.5f, 3.5f);
     private float GetRandomXPosition => Random.Range(-6.0f, 6.0f);
 
-    private Rigidbody2D leftBranch;
-    private Rigidbody2D rightBranch;
+    public event Action OnBranchPassedQueen;
 
 
     private readonly Dictionary<Color, Color> ContrastColor = new Dictionary<Color, Color>()
@@ -73,7 +75,7 @@ public class BranchManager : MonoBehaviour
     private IEnumerator BranchGenerationUpdate(Color startColor, Color endColor)
     {
         var speed = GetSpeed;
-        branchSpeed = speed;
+        BranchSpeed = speed;
         Debug.Log(GENERATION_INTERVAL);
 
         while (true)
@@ -84,29 +86,27 @@ public class BranchManager : MonoBehaviour
             float nextBranchCoord = GetRandomXPosition;
             float sizeOfSpace = GetRandomSpacing;
 
-            GameObject branchInstanceRight = Instantiate(branchPrefab);
-            GameObject branchInstanceLeft = Instantiate(branchPrefab);
+            var rightBranch = Instantiate(branchPrefab).GetComponent<BranchFall>();
+            var leftBranch = Instantiate(branchPrefab).GetComponent<BranchFall>();
 
-            var leafColorLeft = branchInstanceLeft.GetComponent<LeafColorChanger>();
+            var leafColorLeft = leftBranch.GetComponent<LeafColorChanger>();
             leafColorLeft.Init(startColor, endColor);
-            var leafColorRight = branchInstanceRight.GetComponent<LeafColorChanger>();
+            var leafColorRight = rightBranch.GetComponent<LeafColorChanger>();
             leafColorRight.Init(startColor, endColor);
 
-            branchInstanceRight.transform.position = new Vector3(nextBranchCoord + sizeOfSpace, 12, 0);
-            branchInstanceLeft.transform.position = new Vector3(nextBranchCoord - sizeOfSpace, 12, 0);
+            rightBranch.transform.position = new Vector3(nextBranchCoord + sizeOfSpace, 12, 0);
+            leftBranch.transform.position = new Vector3(nextBranchCoord - sizeOfSpace, 12, 0);
 
-            Vector3 newScale = branchInstanceLeft.transform.localScale;
+            Vector3 newScale = leftBranch.transform.localScale;
             newScale.x *= -1;
-            branchInstanceRight.transform.localScale = newScale;
+            rightBranch.transform.localScale = newScale;
 
-            leftBranch = branchInstanceLeft.AddComponent<Rigidbody2D>() as Rigidbody2D;
-            rightBranch = branchInstanceRight.AddComponent<Rigidbody2D>() as Rigidbody2D;
+            rightBranch.Init(speed, queen.position.y);
+            leftBranch.Init(speed, queen.position.y);
 
-			leftBranch.bodyType = RigidbodyType2D.Kinematic;
-			rightBranch.bodyType = RigidbodyType2D.Kinematic;
+            rightBranch.OnBranchPassedQueen += () => OnBranchPassedQueen?.Invoke();
+            leftBranch.OnBranchPassedQueen += () => OnBranchPassedQueen?.Invoke();
 
-            leftBranch.velocity = new Vector2(0.0f, speed * -1);
-            rightBranch.velocity = new Vector2(0.0f, speed * -1);
         }
     }
 
@@ -120,7 +120,7 @@ public class BranchManager : MonoBehaviour
 		var screenHeight = top.y - bot.y;
 
 		//time for the last branch to get to the middle
-		var timeToMid = (screenHeight / 2) / branchSpeed;
+		var timeToMid = (screenHeight / 2) / BranchSpeed;
 
         var newTime = timeToMid * (Random.Range(0.60f, 1.20f));
 

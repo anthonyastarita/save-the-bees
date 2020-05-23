@@ -9,7 +9,7 @@ public class BeeManager : MonoBehaviour
     [SerializeField] private LevelManager levelManager;
 
     private const int INITIAL_BEE_COUNT = 9;
-    private int BEES_PER_LEVEL => 1;
+    private int BEES_PER_LEVEL => 10;
 
     private int currentBeeCount = 0;
     public int CurrentBeeCount
