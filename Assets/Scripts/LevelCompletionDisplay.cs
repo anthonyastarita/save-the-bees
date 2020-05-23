@@ -7,6 +7,8 @@ public class LevelCompletionDisplay : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private GameObject display;
+
     private Button nextLevelButton;
 
     public event Action OnClick;
@@ -34,9 +36,9 @@ public class LevelCompletionDisplay : MonoBehaviour
         Display();
     }
 
-    private void Display(bool display = true)
+    private void Display(bool show = true)
     {
-        nextLevelButton.gameObject.SetActive(display);
+        display.gameObject.SetActive(show);
     }
 
     private void OnNextLevelButtonClicked()

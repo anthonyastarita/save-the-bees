@@ -122,7 +122,7 @@ public class BranchManager : MonoBehaviour
 		//time for the last branch to get to the middle
 		var timeToMid = (screenHeight / 2) / branchSpeed;
 
-        var newTime = timeToMid * (Random.Range(0.80f, 1.20f));
+        var newTime = timeToMid * (Random.Range(0.60f, 1.20f));
 
         Debug.Log(newTime);
         //
