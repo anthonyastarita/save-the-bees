@@ -18,7 +18,7 @@ public class BranchManager : MonoBehaviour
     public float branchSpeed { get; private set; } = 0;
 
     private const float BASE_SPEED = 5.0f;
-    private const float SPEED_GROWTH = 0.5f;
+    private const float SPEED_GROWTH = 0.1f;
     private const float RANDOM_SPEED_BONUS = 1.20f;
 
 
@@ -73,12 +73,13 @@ public class BranchManager : MonoBehaviour
     private IEnumerator BranchGenerationUpdate(Color startColor, Color endColor)
     {
         var speed = GetSpeed;
+        branchSpeed = speed;
         Debug.Log(GENERATION_INTERVAL);
 
         while (true)
         {
-            // / RANDOM_GENERATION_INTERVAL_FACTOR
-            yield return new WaitForSeconds(GENERATION_INTERVAL / RANDOM_GENERATION_INTERVAL_FACTOR);
+            // GENERATION_INTERVAL / RANDOM_GENERATION_INTERVAL_FACTOR
+            yield return new WaitForSeconds(GetInterval());
 
             float nextBranchCoord = GetRandomXPosition;
             float sizeOfSpace = GetRandomSpacing;
@@ -108,6 +109,27 @@ public class BranchManager : MonoBehaviour
             rightBranch.velocity = new Vector2(0.0f, speed * -1);
         }
     }
+
+
+
+    private float GetInterval()
+	{
+		var top = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
+		var bot = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
+
+		var screenHeight = top.y - bot.y;
+
+		//time for the last branch to get to the middle
+		var timeToMid = (screenHeight / 2) / branchSpeed;
+
+        var newTime = timeToMid * (Random.Range(0.60f, 1.20f));
+
+        Debug.Log(newTime);
+        //
+        return newTime;
+
+    }
+
 
 
     private float GetSpeed

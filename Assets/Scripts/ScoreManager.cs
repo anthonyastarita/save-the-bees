@@ -19,10 +19,10 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private int HighScore
+    public int HighScore
     {
         get => PlayerPrefs.GetInt(HIGHSCORE_KEY, 0);
-        set
+        private set
         {
             PlayerPrefs.SetInt(HIGHSCORE_KEY, value);
             OnHighScoreChanged?.Invoke(value);
@@ -42,7 +42,7 @@ public class ScoreManager : MonoBehaviour
     private void OnLevelEnded(int level)
     {
         CurrentScore += 100;
-        if (CurrentScore > HighScore) HighScore = currentScore;
+        if (CurrentScore > HighScore) HighScore = CurrentScore;
     }
 
     

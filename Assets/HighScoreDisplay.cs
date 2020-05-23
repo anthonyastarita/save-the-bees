@@ -10,9 +10,11 @@ public class HighScoreDisplay : MonoBehaviour
     private void Awake()
     {
         var text = GetComponent<Text>();
+        text.text = scoreManager.HighScore.ToString();
         scoreManager.OnHighScoreChanged += (score) =>
         {
             text.text = score.ToString();
         };
+
     }
 }
