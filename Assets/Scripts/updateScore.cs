@@ -40,7 +40,7 @@ public class updateScore : MonoBehaviour
         {
             yield return new WaitForSeconds(2.0f);
             //points are the number of bees alive, times the level number
-            sum += level * scoreManager.BeesAlive;
+            //sum += level * scoreManager.BeesAlive;
             score.SetText(sum.ToString());
 
         }

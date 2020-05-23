@@ -18,6 +18,6 @@ public class DisplayBeesAlive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        beeCount.SetText(scoreManager.BeesAlive.ToString());
+        //beeCount.SetText(scoreManager.BeesAlive.ToString());
     }
 }
