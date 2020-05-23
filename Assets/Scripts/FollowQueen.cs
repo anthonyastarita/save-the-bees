@@ -26,7 +26,7 @@ public class FollowQueen : MonoBehaviour
 			var targetPosition = followDistance + queen.position;
 
 			//applies a spring movement behaviour, gets faster the further the bee is away from the queen
-			rb.velocity = (targetPosition - transform.position) * SPEED;
+			rb.velocity = (targetPosition - transform.position + (Vector3)Random.insideUnitCircle * 2.0f) * SPEED;
 
 			yield return new WaitForFixedUpdate();
 		}
