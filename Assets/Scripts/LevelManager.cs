@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private LevelCompletionDisplay levelCompletionDisplay;
 
-    public int CurrentLevel { get; private set; } = 25;
+    public int CurrentLevel { get; private set; } = 0;
 
     private const float LEVEL_DURATION = 20.0f;
 
