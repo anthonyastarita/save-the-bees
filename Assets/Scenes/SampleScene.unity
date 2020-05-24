@@ -1288,6 +1288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 1467901639}
   branchManager: {fileID: 641639470}
+  beeManager: {fileID: 402477284}
 --- !u!4 &1285505620
 Transform:
   m_ObjectHideFlags: 0
