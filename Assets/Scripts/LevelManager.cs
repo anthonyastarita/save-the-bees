@@ -82,10 +82,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()
-    {
-        CurrentLevel--;
-    }
+    //private void OnApplicationQuit()
+    //{
+    //    CurrentLevel--;
+    //}
 
     private void RestartLevel()
 	{

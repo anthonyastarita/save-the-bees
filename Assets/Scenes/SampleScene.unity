@@ -1059,22 +1059,27 @@ PrefabInstance:
     - target: {fileID: 2327659992522760838, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2327659992522760838, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2327659992522760838, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2327659992522760838, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327659992522760838, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
+        type: 3}
+      propertyPath: m_text
+      value: Buzz
       objectReference: {fileID: 0}
     - target: {fileID: 3238013119236604267, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
         type: 3}
@@ -1089,7 +1094,7 @@ PrefabInstance:
     - target: {fileID: 4028366627293478529, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4028366627293478529, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
         type: 3}
@@ -1099,17 +1104,22 @@ PrefabInstance:
     - target: {fileID: 4028366627293478529, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4028366627293478529, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4028366627293478529, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028366627293478529, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
+        type: 3}
+      propertyPath: m_text
+      value: Buzz
       objectReference: {fileID: 0}
     - target: {fileID: 4268251965161386326, guid: ceffa93f1ca2e401588ecfb9d8bc459c,
         type: 3}

@@ -16,7 +16,7 @@ public class LevelCompletionDisplay : MonoBehaviour
     private string gameId = "3619589";
 
     //keep this true before deployment otherwise we get flagged for fraud
-    private bool testMode = true;
+    private bool testMode = false;
 
     //used so every 2 levels an ad plays
     private int adCount = 0;
