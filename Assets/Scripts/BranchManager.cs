@@ -50,6 +50,9 @@ public class BranchManager : MonoBehaviour
     {
         levelManager.OnLevelStarted += OnLevelStarted;
         levelManager.OnLevelEnded += OnLevelEnded;
+
+        levelManager.Restart += OnLevelRestarted;
+
     }
 
 
@@ -71,6 +74,10 @@ public class BranchManager : MonoBehaviour
         StopAllCoroutines();
     }
 
+    private void OnLevelRestarted()
+    {
+        StopAllCoroutines();
+    }
 
     private IEnumerator BranchGenerationUpdate(Color startColor, Color endColor)
     {

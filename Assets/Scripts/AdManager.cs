@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
-using UnityEditor.Advertisements;
+//using UnityEditor.Advertisements;
 using UnityEngine.UI;
 
 public class AdManager : MonoBehaviour

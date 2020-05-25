@@ -16,6 +16,7 @@ public class queenManager : MonoBehaviour
 
         cam = Camera.main;
         queenPos.y = -5;
+        queenPos.x = 0;
 
     }
 
@@ -34,10 +35,20 @@ public class queenManager : MonoBehaviour
         Event currentEvent = Event.current;
 
         Vector2 mousePos = new Vector2();
-        mousePos.x = currentEvent.mousePosition.x;
-        mousePos.y = cam.pixelHeight - currentEvent.mousePosition.y;
-        queenPos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, 0, cam.nearClipPlane));
 
+
+        mousePos.x = currentEvent.mousePosition.x;
+
+        //mousePos.y = cam.pixelHeight - currentEvent.mousePosition.y;
+
+        if (mousePos.x != 0)
+        {
+            queenPos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, 0, cam.nearClipPlane));
+        }
+		else
+		{
+            queenPos = cam.ScreenToWorldPoint(new Vector3(Screen.width/2, 0, cam.nearClipPlane));
+        }
     }
 
 }

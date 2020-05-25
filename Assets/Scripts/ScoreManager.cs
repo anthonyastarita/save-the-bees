@@ -50,7 +50,7 @@ public class ScoreManager : MonoBehaviour
 
     private void OnBranchPassedQueen()
     {
-        CurrentScore += Mathf.CeilToInt(beeManager.CurrentBeeCount/2);
+        CurrentScore += (beeManager.CurrentBeeCount * levelManager.CurrentLevel);
     }
 
     

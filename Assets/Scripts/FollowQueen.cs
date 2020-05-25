@@ -6,7 +6,7 @@ public class FollowQueen : MonoBehaviour
     private Rigidbody2D rb;
 
     private const float FOLLOW_RADIUS = 3.0f;
-    private const float SPEED = 3.0f;
+    private const float SPEED = 4.0f;
 
     private void Awake()
     {

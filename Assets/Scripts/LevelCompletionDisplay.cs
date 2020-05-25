@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
-using UnityEditor.Advertisements;
+//using UnityEditor.Advertisements;
 
 public class LevelCompletionDisplay : MonoBehaviour
 {
